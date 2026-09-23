@@ -9,6 +9,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="links">
             <a href="/sessions">Sessions</a>
             <a href="/automation">Automation</a>
+            <a href="/mobile">📱 Mobile App</a>
             <a href="/guide">Guide</a>
           </div>
         </nav>

@@ -9,7 +9,8 @@ export default function Home() {
           apne browser me, tumhare apne sessions ke saath.
         </p>
         <div style={{ marginTop: 22 }}>
-          <a className="btn" href="/sessions">Sessions kholo</a>
+          <a className="btn" href="/mobile">📱 Mobile App lo</a>
+          <a className="btn ghost" href="/sessions">Sessions kholo</a>
           <a className="btn ghost" href="/automation">Automation</a>
           <a className="btn ghost" href="/guide">Guide padho</a>
         </div>
