@@ -7,6 +7,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <nav className="nav">
           <a href="/" className="logo">⚡ SessionRunner</a>
           <div className="links">
+            <a href="/surf">🌐 Site chalao</a>
             <a href="/sessions">Sessions</a>
             <a href="/automation">Automation</a>
             <a href="/mobile">📱 Mobile App</a>
