@@ -1,0 +1,1 @@
+{"buildCommand":"node --version && npm --version && pwd && ls && echo \"--- next binary ---\" && ls -la node_modules/.bin/next && node node_modules/next/dist/bin/next --version && echo \"--- starting build ---\" && npm run build","framework":"nextjs"}
