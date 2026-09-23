@@ -1,0 +1,68 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>SessionRunner — Automation</title>
+<style>
+  * { box-sizing: border-box; font-family: system-ui, sans-serif; }
+  body { margin: 0; padding: 24px; background: #0f172a; color: #e2e8f0; max-width: 900px; }
+  h2 { margin: 0 0 4px; } h3 { margin: 24px 0 10px; }
+  p.sub { color: #94a3b8; font-size: 13px; margin: 0 0 16px; }
+  .card { background: #1e293b; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+  label { display: block; font-size: 12px; color: #94a3b8; margin: 10px 0 4px; }
+  input, select, textarea { width: 100%; padding: 8px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: #e2e8f0; font-size: 13px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  button { padding: 9px 14px; border: 0; border-radius: 8px; cursor: pointer; font-size: 13px; }
+  .primary { background: #0ea5e9; color: #fff; font-weight: 600; margin-top: 14px; }
+  .small { padding: 5px 10px; font-size: 12px; margin-right: 6px; }
+  .ok { background: #14532d; color: #86efac; } .bad { background: #3f1d24; color: #fda4af; }
+  .mut { background: #334155; color: #e2e8f0; }
+  .job { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .job .nm { font-weight: 600; } .job .meta { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 20px; }
+  .b-ok { background: #14532d; color: #86efac; } .b-fail { background: #3f1d24; color: #fda4af; } .b-off { background: #334155; color: #94a3b8; }
+  #logs { font-family: monospace; font-size: 12px; }
+  .logrow { padding: 6px 0; border-bottom: 1px solid #334155; }
+  .chk { display: flex; align-items: center; gap: 8px; margin-top: 10px; font-size: 13px; }
+  .chk input { width: auto; }
+  .msg { font-size: 13px; color: #86efac; margin-top: 8px; }
+</style>
+</head><body>
+  <h2>⚡ SessionRunner — Automation</h2>
+  <p class="sub">Saved session par scheduled jobs chalao: har kuch minute me URL kholo, login check karo, fail par alert pao.</p>
+
+  <h3>➕ Naya job</h3>
+  <div class="card">
+    <label>Job ka naam</label>
+    <input id="jName" placeholder="jaise: Dashboard login check">
+    <div class="grid2">
+      <div><label>Session</label><select id="jSession"></select></div>
+      <div><label>Har kitne minute me</label><input id="jInterval" type="number" value="10" min="1"></div>
+    </div>
+    <label>URL (session ke saath khulega)</label>
+    <input id="jUrl" placeholder="https://example.com/dashboard">
+    <div class="grid3">
+      <div><label>Method</label><select id="jMethod"><option>GET</option><option>POST</option></select></div>
+      <div><label>Check</label>
+        <select id="jCheckType">
+          <option value="none">koi check nahi</option>
+          <option value="contains">page me ye text HO</option>
+          <option value="notContains">page me ye text NA ho</option>
+          <option value="urlNotContains">URL me ye NA ho (jaise /login)</option>
+        </select>
+      </div>
+      <div><label>Check value</label><input id="jCheckVal" placeholder="jaise: Welcome"></div>
+    </div>
+    <label>POST body (JSON, sirf POST ke liye)</label>
+    <input id="jBody" placeholder='{"action":"ping"}'>
+    <div class="chk"><input type="checkbox" id="jNotify" checked> <span>Fail hone par notification dikhao</span></div>
+    <button id="btnSaveJob" class="primary">Job save karo</button>
+    <div id="jobMsg" class="msg"></div>
+  </div>
+
+  <h3>📋 Jobs</h3>
+  <div id="jobList"></div>
+
+  <h3>🧾 Logs <span id="logTitle" style="font-size:13px;color:#94a3b8"></span></h3>
+  <div class="card"><div id="logs"><span style="color:#64748b">Kisi job ka "Logs" dabao</span></div></div>
+
+<script src="options.js"></script>
+</body></html>

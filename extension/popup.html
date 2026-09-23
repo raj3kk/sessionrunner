@@ -1,0 +1,53 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; font-family: system-ui, sans-serif; }
+  body { width: 340px; margin: 0; padding: 12px; background: #0f172a; color: #e2e8f0; }
+  h3 { margin: 0 0 10px; font-size: 15px; }
+  .tabs { display: flex; gap: 6px; margin-bottom: 10px; }
+  .tabs button { flex: 1; padding: 8px; border: 0; border-radius: 8px; background: #1e293b; color: #94a3b8; cursor: pointer; font-size: 13px; }
+  .tabs button.on { background: #0ea5e9; color: #fff; font-weight: 600; }
+  label { display: block; font-size: 12px; color: #94a3b8; margin: 8px 0 4px; }
+  input, textarea { width: 100%; padding: 8px; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: #e2e8f0; font-size: 13px; }
+  textarea { font-family: monospace; resize: vertical; }
+  button.primary, button.ghost { width: 100%; margin-top: 10px; padding: 10px; border: 0; border-radius: 8px; font-size: 14px; cursor: pointer; }
+  button.primary { background: #0ea5e9; color: #fff; font-weight: 600; }
+  button.ghost { background: #1e293b; color: #e2e8f0; }
+  hr { border: 0; border-top: 1px solid #1e293b; margin: 12px 0; }
+  .msg { font-size: 12px; color: #86efac; margin-top: 8px; min-height: 16px; }
+  .sess { background: #1e293b; border-radius: 8px; padding: 8px; margin-bottom: 8px; }
+  .sess .nm { font-weight: 600; font-size: 13px; }
+  .sess .dm { font-size: 11px; color: #94a3b8; }
+  .sess .row { display: flex; gap: 6px; margin-top: 6px; }
+  .sess .row button { flex: 1; padding: 6px; border: 0; border-radius: 6px; cursor: pointer; font-size: 12px; }
+  .open { background: #0ea5e9; color: #fff; }
+  .del { background: #3f1d24; color: #fda4af; }
+  .foot { margin-top: 10px; text-align: center; }
+  .foot a { color: #0ea5e9; font-size: 12px; text-decoration: none; }
+</style>
+</head><body>
+  <h3>⚡ SessionRunner</h3>
+  <div class="tabs">
+    <button id="tabLogin" class="on">Session Login</button>
+    <button id="tabSessions">Sessions</button>
+  </div>
+
+  <div id="paneLogin">
+    <label>Website URL</label>
+    <input id="loginUrl" placeholder="https://example.com/dashboard">
+    <label>Session cookies <span style="color:#64748b">(format: name=value; name2=value2)</span></label>
+    <textarea id="cookieStr" rows="4" placeholder="sessionid=abc123; csrftoken=xyz789"></textarea>
+    <button id="btnLogin" class="primary">Session se login karo</button>
+    <hr>
+    <button id="btnCapture" class="ghost">📥 Is tab ka session save karo</button>
+    <div id="loginMsg" class="msg"></div>
+  </div>
+
+  <div id="paneSessions" hidden>
+    <div id="sessList"></div>
+    <div id="sessMsg" class="msg"></div>
+  </div>
+
+  <div class="foot"><a href="#" id="openOptions">⚙️ Automation jobs (Options)</a></div>
+<script src="popup.js"></script>
+</body></html>
