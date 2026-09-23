@@ -6,11 +6,12 @@ export default function Guide() {
 
       <div className="card">
         <h3>1️⃣ Extension install karo (ek baar)</h3>
+        <p><a href="/sessionrunner-extension.zip" className="btn">⬇️ Extension ZIP download karo</a></p>
         <ol className="guide">
-          <li>GitHub repo <code>raj3kk/sessionrunner</code> se <code>extension/</code> folder download karo (ya zip).</li>
+          <li>Upar wala <b>ZIP download</b> karo aur extract karo (ya GitHub repo <code>raj3kk/sessionrunner</code> se <code>extension/</code> folder lo).</li>
           <li>Chrome me <code>chrome://extensions</code> kholo.</li>
           <li>Upar right me <b>Developer mode</b> ON karo.</li>
-          <li><b>Load unpacked</b> dabao aur <code>extension/</code> folder select karo.</li>
+          <li><b>Load unpacked</b> dabao aur extract kiya hua folder select karo.</li>
           <li>Toolbar me ⚡ icon pin kar lo. Bas!</li>
         </ol>
       </div>
